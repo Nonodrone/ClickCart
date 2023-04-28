@@ -1,0 +1,49 @@
+﻿@using ClickCart.Web.Models.Administration.AdministrationPanel;
+@model AdministrationPanelModel
+
+<div class="admin-panel">
+    <div class="admin-panel-sections">
+        <header class="admin-panel-sections-header">Product Categories</header>
+        <main class="admin-panel-sections-content">
+            @foreach (var productCategory in Model.ProductCategories)
+            {
+                <div class="admin-panel-sections-element">
+                    <div class="admin-panel-sections-element-label">@productCategory.Name</div>
+                    <div class="admin-panel-sections-element-actions">
+                        <a style="text-decoration: none" class="admin-panel-create-button-label" asp-route-id="@productCategory.Id" asp-area="Administration" asp-controller="ProductCategoriesAdministration" asp-action="Edit">Edit</a>
+                        <form asp-action="Delete" asp-controller="ProductCategoriesAdministration" asp-route-id="@productCategory.Id" method="post">
+                            <button type="submit" class="form-button">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </main>
+        <footer class="admin-panel-sections-options">
+            <div class="admin-panel-create-button">
+                <a style="text-decoration: none" class="admin-panel-create-button-label" asp-area="Administration" asp-controller="ProductCategoriesAdministration" asp-action="Create">Create Product Category</a>
+            </div>
+        </footer>
+    </div>
+    <div class="admin-panel-categories">
+        <header class="admin-panel-categories-header">Products</header>
+        <main class="admin-panel-categories-content">
+            @foreach (var product in Model.Products)
+            {
+                <div class="admin-panel-categories-element">
+                    <div class="admin-panel-categories-element-label">@product.Name</div>
+                    <div class="admin-panel-categories-element-actions">
+                        <a style="text-decoration: none" class="admin-panel-create-button-label" asp-route-id="@product.Id" asp-area="Administration" asp-controller="ProductAdministration" asp-action="Edit">Edit</a>
+                        <form asp-action="Delete" asp-controller="ProductAdministration" asp-route-id="@product.Id" method="post">
+                            <button type="submit" class="form-button">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            }
+        </main>
+        <footer class="admin-panel-categories-options">
+            <div class="admin-panel-create-button">
+                <a style="text-decoration: none" class="admin-panel-create-button-label" asp-area="Administration" asp-controller="ProductAdministration" asp-action="Create">Create Product</a>
+            </div>
+        </footer>
+    </div>
+</div>

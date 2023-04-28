@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ClickCart.Data.Models
+
+@inject SignInManager<ClickCartUser> SignInManager
+@inject UserManager<ClickCartUser> UserManager
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/ClickCart.Web.styles.css" asp-append-version="true" />
+
+<ul class="navbar-items">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @if (User.IsInRole("Admin"))
+        {
+            <li class="navbar-item">
+                <a class="navbar-link" asp-area="Administration" asp-controller="AdministrationPanel" asp-action="Index">Admin Panel</a>
+            </li>
+        }
+        <li class="navbar-item">
+            <a class="navbar-link" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
+        </li>
+        <li class="navbar-item">
+            <a class="navbar-link" asp-area="" asp-controller="Cart" asp-action="Index">
+                <img style="height: 2rem" src="~/images/shopping-cart.png" />
+            </a>
+        </li>
+    }
+    else
+    {
+        <li class="navbar-item">
+            <a class="navbar-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+        <li class="navbar-item">
+            <a class="navbar-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="navbar-item">
+            <a class="navbar-link" asp-area="" asp-controller="Cart" asp-action="Index">
+                <img style="height: 2rem" src="~/images/shopping-cart.png" />
+            </a>
+        </li>
+    }
+</ul>

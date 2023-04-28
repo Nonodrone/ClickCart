@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "ClickCart.Data": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:64245;http://localhost:64248"
+    }
+  }
+}

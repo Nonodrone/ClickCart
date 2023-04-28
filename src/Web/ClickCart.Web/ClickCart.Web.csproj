@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-ClickCart.Web-784a8f80-401f-4ea3-bff4-25107930fe14</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.13" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\ClickCart.Data.Models\ClickCart.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Data\ClickCart.Data\ClickCart.Data.csproj" />
+    <ProjectReference Include="..\..\Service\ClickCart.Service.Mapping\ClickCart.Service.Mapping.csproj" />
+    <ProjectReference Include="..\..\Service\ClickCart.Service.Models\ClickCart.Service.Models.csproj" />
+    <ProjectReference Include="..\..\Service\ClickCart.Service\ClickCart.Service.csproj" />
+    <ProjectReference Include="..\ClickCart.Web.Models\ClickCart.Web.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+</Project>

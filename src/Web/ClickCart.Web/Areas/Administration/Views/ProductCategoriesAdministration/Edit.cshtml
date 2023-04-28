@@ -1,0 +1,18 @@
+﻿@model ProductCategoryDto
+
+@{
+}
+
+<div class="form-container">
+    <h1 class="form-heading">Edit Product Category</h1>
+    <form asp-area="Administration" asp-controller="ProductCategoriesAdministration" asp-action="Edit" method="post">
+        <div>
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" type="text" name="name" placeholder="Name..." class="form-input" />
+        </div>
+        <div>
+            <button class="form-button">Edit Product Category</button>
+            <a style="text-decoration: none" class="admin-panel-create-button-label" asp-area="Administration" asp-controller="AdministrationPanel" asp-action="Index" class="form-link">Back</a>
+        </div>
+    </form>
+</div>

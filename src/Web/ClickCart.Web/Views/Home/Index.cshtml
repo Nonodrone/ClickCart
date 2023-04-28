@@ -1,0 +1,32 @@
+﻿@using ClickCart.Web.Models.Home;
+@using Microsoft.AspNetCore.Identity
+@using ClickCart.Data.Models
+
+@model HomeModel
+
+@inject SignInManager<ClickCartUser> SignInManager
+
+<div class="main-container-products">
+    @foreach (var product in Model.Products)
+    {
+        <div class="product-card-container">
+            <div class="img-container">
+                <img src="~/images/@product.ImageUrl" alt=""></img>
+            </div>
+            <div class="product-info-container">
+                <h1>@product.Name</h1>
+                <p>Price: @product.Price bgn</p>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <form asp-controller="Cart" asp-action="Create" asp-route-id="@product.Id" method="post">
+                        <button class="form-button">AddToCart</button>
+                    </form>
+                }
+                else
+                {
+                    <button class="form-button">AddToCart</button>
+                }
+            </div>
+        </div>
+    }
+</div>
